@@ -6,28 +6,34 @@
 		<!-- Latest compiled and minified CSS for bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	</head>
-	<body>
+	<body ng-app='todoApp' ng-controller="TodosController">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<!-- Create your form below, try adding some angular validations -->
-					<form>
-					</form>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<!-- List your todos here, use some css to hide the bullet points -->
-					<ul> 
-					</ul>
-				</div>
-			</div>
-		</div>
+					<h1>Todo List App</h1>
+				
+<form ng-submit="todoAdd()">
+    <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+    <input type="submit" value="Add New">
+</form>
+
+<br>
+
+<div ng-repeat="x in todoList">
+    <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+</div>
+
+<p><button ng-click="remove()">Remove marked</button></p>
+
+
 
 		<!-- JavaScripts -->
 		<!-- jQuery -->
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
 		<!-- Latest compiled and minified JavaScript for bootstrap -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
 	</body>
 </html>
